@@ -41,3 +41,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: GrassAndStone
+    uniqueID: 3834644713
+    locked: 0
+  - name: Road
+    uniqueID: 3219723971
+    locked: 0
+  - name: Flower
+    uniqueID: 3533556309
+    locked: 0
+  - name: Player
+    uniqueID: 736940557
+    locked: 0
+  - name: Skin
+    uniqueID: 1023512331
+    locked: 0
