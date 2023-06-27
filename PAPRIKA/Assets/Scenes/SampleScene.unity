@@ -3210,6 +3210,7 @@ GameObject:
   - component: {fileID: 842166559}
   - component: {fileID: 842166558}
   - component: {fileID: 842166560}
+  - component: {fileID: 842166561}
   m_Layer: 0
   m_Name: Main Character _ Shannon
   m_TagString: Untagged
@@ -3318,8 +3319,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  lastMotionVector: {x: 0, y: 0}
   skinAnimator:
   - {fileID: 1745294335}
+  moving: 0
 --- !u!50 &842166559
 Rigidbody2D:
   serializedVersion: 4
@@ -3367,6 +3370,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9555409, y: 1.2958279}
   m_EdgeRadius: 0
+--- !u!114 &842166561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842166554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ec7073e624458d41a0f9a8d060babf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offsetDistance: 1
+  sizeOfInteractableArea: 1.2
 --- !u!1 &1236190017
 GameObject:
   m_ObjectHideFlags: 0
@@ -3449,6 +3466,7 @@ GameObject:
   - component: {fileID: 1371159399}
   - component: {fileID: 1371159398}
   - component: {fileID: 1371159400}
+  - component: {fileID: 1371159401}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Untagged
@@ -3549,6 +3567,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5996559, y: 0.75218505}
   m_EdgeRadius: 0
+--- !u!114 &1371159401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371159397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f816f6fe9964d54c8128099817d5f31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1440321141
 GameObject:
   m_ObjectHideFlags: 0

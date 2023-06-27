@@ -11,10 +11,12 @@ public class CharacterController2D : MonoBehaviour
     private Rigidbody2D rigidbody2d;
     [SerializeField] float speed = 2f;
     private Vector2 motionVector;
+    public Vector2 lastMotionVector;
     
     [Category("Animators")]
     private Animator characterAnimator;
     [SerializeField] Animator[] skinAnimator;
+    public bool moving;
     
     void Awake()
     {
@@ -24,13 +26,24 @@ public class CharacterController2D : MonoBehaviour
 
     private void Update()
     {
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
+        
         motionVector = new Vector2(
-            Input.GetAxisRaw("Horizontal"),
-            Input.GetAxisRaw("Vertical")
+            horizontal,
+            vertical
             );
         
         TypeOfAnimation(characterAnimator);
         TypeOfAnimation(skinAnimator[0]); //TODO: Change this into a TMap
+        
+        // Detection of movement from player is based on their horizontal and vertical values
+        // Feeding it back to the animator
+        moving = isPlayerMoving(horizontal, vertical);
+        characterAnimator.SetBool("moving", moving);
+
+        // Storing position from last movement
+        setLastMotionVector(horizontal, vertical);
     }
 
     void FixedUpdate()
@@ -49,12 +62,23 @@ public class CharacterController2D : MonoBehaviour
         animator.SetFloat("vertical", motionVector.y);
         animator.SetFloat("speed", motionVector.sqrMagnitude);
     }
+
+    public bool isPlayerMoving(float horizontal, float vertical)
+    {
+        return horizontal != 0 || vertical != 0;
+    }
+
+    public void setLastMotionVector(float h, float v)
+    {
+        if (h != 0 || v != 0)
+        {
+            lastMotionVector = new Vector2(h, v).normalized;
+
+            characterAnimator.SetFloat("lastHorizontal", h);
+            characterAnimator.SetFloat("lastVertical", v);
+        }
+    }
 }
 
-internal class cat
-{
-}
 
-internal class cow
-{
-}
+
