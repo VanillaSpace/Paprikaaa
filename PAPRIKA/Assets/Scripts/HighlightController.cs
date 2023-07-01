@@ -5,7 +5,7 @@ using UnityEngine;
 public class HighlightController : MonoBehaviour
 {
     [SerializeField] private GameObject highlighter;
-    [SerializeField] public float yOffset = 1.0f;
+    [SerializeField] public float yOffset = 0.5f;
     private GameObject currentTarget;
     
     public void Highlight(GameObject target)
@@ -15,8 +15,7 @@ public class HighlightController : MonoBehaviour
             return;
         }
         currentTarget = target;
-        Vector3 position = target.transform.position;
-        position.y += yOffset;
+        Vector3 position = target.transform.position + Vector3.up * yOffset;
         Highlight(position);
     }
 
