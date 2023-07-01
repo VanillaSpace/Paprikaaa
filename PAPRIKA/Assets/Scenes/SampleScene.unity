@@ -3314,7 +3314,7 @@ GameObject:
   - component: {fileID: 842166562}
   - component: {fileID: 842166563}
   m_Layer: 0
-  m_Name: Main Character _ Shannon
+  m_Name: 'Main Character '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
