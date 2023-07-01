@@ -36,16 +36,18 @@ public class CharacterInteractController : MonoBehaviour
       Vector2 position = rgbd2d.position + characterController.lastMotionVector * offsetDistance;
 
       Collider2D[] colliders = Physics2D.OverlapCircleAll(position, sizeOfInteractableArea);
-      
+
       foreach (Collider2D c in colliders)
       {
          Interactable hit = c.GetComponent<Interactable>();
          if (hit != null)
          {
             highlightController.Highlight(hit.gameObject);
-            break;
+            return;
          }
       }
+      
+      highlightController.Hide();
    }
    private void Interact()
    {

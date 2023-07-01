@@ -59,7 +59,7 @@ public class CharacterController2D : MonoBehaviour
     private void TypeOfAnimation(Animator animator)
     {
         animator.SetFloat("horizontal", motionVector.x);
-        animator.SetFloat("vertical", motionVector.y);
+       // animator.SetFloat("vertical", motionVector.y);
         animator.SetFloat("speed", motionVector.sqrMagnitude);
     }
 
