@@ -9,7 +9,7 @@ public class InventoryController : MonoBehaviour
 
    private void Update()
    {
-      if (Input.GetKeyDown(KeyCode.I))
+      if (Input.GetKeyDown(KeyCode.E)) // Following minecraft's control scheme
       {
          ToggleInventory();
       }
