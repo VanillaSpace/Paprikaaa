@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 
 public class PickUpItem : MonoBehaviour
@@ -10,6 +11,10 @@ public class PickUpItem : MonoBehaviour
     [SerializeField] public float pickUpDistance = 1.5f;
     [SerializeField] public float ttl = 10.0f;
 
+    [Category("Items")]
+    public Item item;
+    public int count = 1;
+    
     private void Awake()
     {
         player = GameManager.instance.player.transform;
@@ -36,6 +41,15 @@ public class PickUpItem : MonoBehaviour
 
         if (distance < 0.1f)
         {
+            // TODO: Move into specified controller not in here!
+            if (GameManager.instance.inventoryContainer != null)
+            {
+                GameManager.instance.inventoryContainer.Add(item, count);
+            }
+            else
+            {
+                Debug.LogWarning("no inventory set up, please implement the data asset in the GM!");
+            }
             Destroy(gameObject);
         }
     }
