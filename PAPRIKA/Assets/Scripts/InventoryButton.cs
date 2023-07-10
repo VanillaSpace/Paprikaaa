@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventoryButton : MonoBehaviour
+public class InventoryButton : MonoBehaviour, IPointerClickHandler
 {
    [SerializeField] private Image icon;
    [SerializeField] private TextMeshProUGUI text;
@@ -38,5 +39,12 @@ public class InventoryButton : MonoBehaviour
       icon.gameObject.SetActive(false);
       
       text.gameObject.SetActive(false);
+   }
+
+   public void OnPointerClick(PointerEventData eventData)
+   {
+      ItemContainer inventory = GameManager.instance.inventoryContainer;
+      GameManager.instance.dragAndDropController.OnClick(inventory.slots[myIndex]);
+      transform.parent.parent.GetComponent<InventoryPanel>().Show(); // Since we are using a grid organizer we have to set the parent twice
    }
 }
