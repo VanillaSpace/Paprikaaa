@@ -5,8 +5,11 @@ using UnityEngine;
 public class TreeChoppable : ToolHit
 {
     [SerializeField] public GameObject pickUpDrop;
-    [SerializeField] public int dropCount = 5;
     [SerializeField] public float spread = 0.7f;
+
+    [SerializeField] public Item item;
+    [SerializeField] public int itemCountInOneDrop = 1;
+    [SerializeField] public int dropCount = 5;
     
     public override void Hit()
     {
@@ -17,8 +20,8 @@ public class TreeChoppable : ToolHit
             Vector3 position = transform.position;
             position.x += spread * UnityEngine.Random.value - spread / 2;
             position.y += spread * UnityEngine.Random.value - spread / 2;
-            GameObject go = Instantiate(pickUpDrop);
-            go.transform.position = position;
+            
+            ItemSpawnManager.instance.SpawnItem(position, item, itemCountInOneDrop);
         }
         Destroy(gameObject);
     }
