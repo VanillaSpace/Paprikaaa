@@ -9,7 +9,8 @@ public class InventoryButton : MonoBehaviour, IPointerClickHandler
 {
    [SerializeField] private Image icon;
    [SerializeField] private TextMeshProUGUI text;
-
+   [SerializeField] private Image highlight;
+   
    private int myIndex;
 
    public void SetIndex(int index)
@@ -43,8 +44,12 @@ public class InventoryButton : MonoBehaviour, IPointerClickHandler
 
    public void OnPointerClick(PointerEventData eventData)
    {
-      ItemContainer inventory = GameManager.instance.inventoryContainer;
-      GameManager.instance.dragAndDropController.OnClick(inventory.slots[myIndex]);
-      transform.parent.parent.GetComponent<InventoryPanel>().Show(); // Since we are using a grid organizer we have to set the parent twice
+      ItemPanel itemPanel = transform.parent.GetComponent<ItemPanel>();
+      itemPanel.OnClick(myIndex);
+   }
+
+   public void Highlight(bool IsSelected)
+   {
+      highlight.gameObject.SetActive(IsSelected);
    }
 }
