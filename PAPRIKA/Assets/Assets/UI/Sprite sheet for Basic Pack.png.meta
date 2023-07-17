@@ -3402,13 +3402,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite sheet for Basic Pack_157
+      name: Marker
       rect:
         serializedVersion: 2
         x: 148
-        y: 83
-        width: 8
-        height: 9
+        y: 67
+        width: 24
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -6755,6 +6755,7 @@ TextureImporter:
       Exit_push: -2012193293
       Inventory_slot: -652655322
       Inventory_window: -1837710479
+      Marker: -332875723
       Sprite sheet for Basic Pack_0: 624051345
       Sprite sheet for Basic Pack_10: -1806208066
       Sprite sheet for Basic Pack_100: -1357286100
@@ -6819,7 +6820,6 @@ TextureImporter:
       Sprite sheet for Basic Pack_154: 787674261
       Sprite sheet for Basic Pack_155: -2044504105
       Sprite sheet for Basic Pack_156: 257067968
-      Sprite sheet for Basic Pack_157: -332875723
       Sprite sheet for Basic Pack_158: -128140400
       Sprite sheet for Basic Pack_159: -402714519
       Sprite sheet for Basic Pack_16: -2138119015

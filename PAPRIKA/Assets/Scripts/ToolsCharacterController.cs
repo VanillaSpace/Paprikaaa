@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Timeline;
 
 public class ToolsCharacterController : MonoBehaviour
 {
@@ -9,7 +10,8 @@ public class ToolsCharacterController : MonoBehaviour
    private Rigidbody2D rgbd2d;
    [SerializeField] public float offsetDistance = 1.0f;
    [SerializeField] public float sizeOfInteractableArea = 1.2f;
-   
+   [SerializeField] public MarkerManager markerManager;
+   [SerializeField] public TileMapReaderController tileMapReaderController;
 
    private void Awake()
    {
@@ -19,10 +21,17 @@ public class ToolsCharacterController : MonoBehaviour
 
    private void Update()
    {
+      Marker();
       if (Input.GetMouseButton(0))
       {
          UseTool();
       }
+   }
+
+   private void Marker()
+   {
+      Vector3Int gridPosition = tileMapReaderController.GetGridPosition(Input.mousePosition, true);
+      markerManager.markedCellPosition = gridPosition;
    }
 
    private void UseTool()

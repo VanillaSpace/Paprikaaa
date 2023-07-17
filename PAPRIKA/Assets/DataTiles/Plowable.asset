@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 515ca13d3e8f9dd45b97df2dc04c3c4c, type: 3}
+  m_Name: Plowable
+  m_EditorClassIdentifier: 
+  tiles:
+  - {fileID: 11400000, guid: 9e52d4d013e79c741b65d18727e85fa8, type: 2}
+  - {fileID: 11400000, guid: 5093a907abe39f849b467ce927278593, type: 2}
+  plowable: 1
